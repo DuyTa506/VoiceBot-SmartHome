@@ -1,0 +1,51 @@
+version: "3.1"
+stories:
+- story: sad path 1 (./rasa/lib64/python3.9/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: turn_on_lab: hello
+  - action: utter_greet  # predicted: action_listen
+  - intent: mood_unhappy  # predicted: turn_on_lab: not good
+  - action: utter_cheer_up  # predicted: utter_lab_turn_off
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: affirm  # predicted: turn_on_lab: yes
+  - action: utter_happy  # predicted: utter_lab_turn_off
+- story: sad path 2 (./rasa/lib64/python3.9/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: turn_on_lab: hello
+  - action: utter_greet  # predicted: action_listen
+  - intent: mood_unhappy  # predicted: turn_on_lab: not good
+  - action: utter_cheer_up  # predicted: utter_lab_turn_off
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: deny  # predicted: turn_on_lab: not really
+  - action: utter_goodbye  # predicted: utter_lab_turn_off
+- story: sad path 3 (./rasa/lib64/python3.9/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: turn_off_lab: hi
+  - action: utter_greet  # predicted: action_listen
+  - intent: mood_unhappy  # predicted: turn_on_lab: very terrible
+  - action: utter_cheer_up  # predicted: utter_lab_turn_off
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: deny  # predicted: turn_on_lab: no
+  - action: utter_goodbye  # predicted: utter_lab_turn_off
+- story: say goodbye (./rasa/lib64/python3.9/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
+  steps:
+  - intent: goodbye  # predicted: turn_on_lab: bye-bye!
+  - action: utter_goodbye  # predicted: action_listen
+- story: bot challenge (./rasa/lib64/python3.9/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
+  steps:
+  - intent: bot_challenge  # predicted: turn_on_lab: are you a bot?
+  - action: utter_iamabot  # predicted: action_listen
+- story: happy path 1 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: turn_off_lab: hello there!
+  - action: utter_greet  # predicted: action_listen
+  - intent: mood_great  # predicted: turn_off_lab: amazing
+  - action: utter_happy  # predicted: utter_lab_turn_off
+- story: happy path 2 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: turn_off_lab: hello there!
+  - action: utter_greet  # predicted: action_listen
+  - intent: mood_great  # predicted: turn_off_lab: amazing
+  - action: utter_happy  # predicted: utter_lab_turn_off
+  - intent: goodbye  # predicted: turn_on_lab: bye-bye!
+  - action: utter_goodbye  # predicted: utter_lab_turn_off

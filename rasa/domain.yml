@@ -1,0 +1,151 @@
+version: "3.1"
+
+intents:
+  - greet 
+  - hoiten
+  - hoichucnang
+  - batnhac
+  - bye 
+  - turn_on_lab 
+  - turn_off_lab_phongngu
+  - turn_off_lab_phongkhach
+  - turn_off_lab_phongan
+  - turn_on_lab_phongngu
+  - turn_on_lab_phongan
+  - turn_on_lab_nhavesinh
+  - turn_off_lab_nhavesinh
+  - ask_time
+  - lock_the_door
+  - turn_on_lab_phongkhach
+  - out_youtube
+  - search_youtube
+  - play_music
+  - stop_music
+  - ask_weathertoday
+  - hoisk
+  
+
+entities:
+- music_name
+slots:
+  music_name:
+    type: text
+    influence_conversation: true 
+    mappings:
+    - type: from_entity
+      entity: music_name
+      conditions: 
+      - active_loop: youtube_form
+
+forms:
+  youtube_form:
+    ignored_intents: 
+    - ask_time
+    - lock_the_door
+    - turn_off_lab_nhavesinh
+    - turn_on_lab_nhavesinh
+    - batnhac
+    - out_of_scope
+    - hoiten
+    - hoichucnang
+    - bye 
+    - turn_on_lab 
+    - turn_off_lab_phongngu
+    - turn_off_lab_phongkhach
+    - turn_off_lab_phongan
+    - turn_on_lab_phongngu
+    - turn_on_lab_phongkhach
+    - out_youtube
+    - play_music
+    - stop_music
+    - ask_weathertoday
+    - hoisk
+    required_slots:
+        - music_name
+        
+
+# điều khiển đèn : phòng khách , phòng ngủ , phòng bếp , nhà vệ sinh 
+# khóa cổng 
+# youtube video url
+responses:
+  utter_batdau: 
+  - text: "Em chào anh ạ"
+
+  utter_bye: 
+  - text: "Em tư duy sâu đây ạ"
+
+
+  utter_traloichucnang: 
+  - text: "Dạ em là trợ lý ảo em có thể thực hiện một số chức năng cơ bản như bật, tắt đèn, khóa cửa, bật nhạc youtube, hỏi thời tiết và trả lời câu hỏi anh ạ."
+
+  utter_traloiten: 
+  - text: "Dạ em tên là trợ lý ảo nhà thông minh nhưng anh có thể gọi em là smart bot cho nó tây ạ."
+
+
+  utter_hoi_den:
+  - text: "Cho em hỏi anh muốn bật đèn nào ạ?"
+
+  
+  utter_tat_den_phong_khach:
+  - text: "Đèn phòng khách đã được tắt ạ."
+  utter_bat_den_phong_khach:
+  - text: "Em đã bật đèn phòng khách ạ."
+
+  utter_tat_den_phong_ngu:
+  - text: "Đèn phòng ngủ đã được tắt ạ."
+  utter_bat_den_phong_ngu:
+  - text: "Em đã bật đèn phòng ngủ ạ."
+
+  utter_xac_nhan_hoi_gi: 
+  - text: "cho em hỏi anh muốn hỏi gì ạ?"
+
+  utter_tat_den_nhavesinh:
+  - text: "Đèn nhà vệ sinh đã được tắt ạ."
+  utter_bat_den_nhavesinh:
+  - text: "Em đã bật đèn nhà vệ sinh ạ."
+
+  utter_khoa_cua:
+  - text: "Em đã khóa cổng rồi ạ."
+
+  utter_tra_loi_gio: 
+  - text: "Dạ bây giờ là 9h30p ạ."
+
+  utter_ket_thuc: 
+  - text: "em chào anh ạ"
+  utter_cho_doi:
+  - text: "Dạ vâng ạ"
+  utter_ask_youtube_form_music_name:
+  - text: "Cho em hỏi anh muốn bật bài gì ạ ?"
+
+  utter_sk: 
+  - text: Em lúc nào chả khỏe, trừ lúc mất điện :)
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_did_that_help:
+  # - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  # utter_goodbye:
+  # - text: "Bye"
+
+  # utter_iamabot:
+  # - text: "I am a bot, powered by Rasa."
+
+actions:
+  - action_ans_time: {send_domain: True}  # will receive domain
+  - action_batnhac: {send_domain: True} 
+  - action_askGPT : {send_domain: True}
+  - validate_youtube_form 
+  - action_youtube_form : {send_domain: True}
+  - action_stop_music : {send_domain: True}
+  - action_ans_weathertoday : {send_domain: True}
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+
+

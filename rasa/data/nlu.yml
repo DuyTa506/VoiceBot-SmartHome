@@ -1,0 +1,276 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet 
+  examples: | 
+    - Xin chào 
+    - chào em 
+
+- intent: bye 
+  examples: | 
+    - em nghỉ đi 
+
+- intent: hoiten 
+  examples: | 
+    - Em tên là gì?
+    - Em tên là gì nhỉ?
+    - Em là ai?
+
+- intent: hoichucnang 
+  examples: | 
+    - Em có thể làm gì nhỉ? 
+    - Em làm được gì? 
+    - Em có thể làm được những gì? 
+    - Nói anh nghe em có thể làm được gì nào?
+    - Chức năng của em là gì? 
+
+- intent: batnhac 
+  examples: | 
+    - Bật cho anh bài nhạc tủ
+- intent: turn_on_lab
+  examples: |
+    - Bật cho anh cái đèn cái 
+    - Bật đèn lên 
+    - Tối quá 
+    - Tôi muốn bật đèn lên 
+    - bật đèn 
+    - Bật đèn đê 
+
+- intent: turn_off_lab_phongngu
+  examples: |
+    - Tắt cho anh cái đèn phòng ngủ cái 
+    - Tắt đèn phòng ngủ
+    - Tôi muốn tắt đèn phòng ngủ
+    - tắt đèn phòng ngủ
+    - Tắt đèn phòng ngủ đê 
+
+- intent: turn_off_lab_phongkhach
+  examples: |
+    - Tắt cho anh cái đèn phòng khách cái 
+    - Tắt đèn phòng khách
+    - Tôi muốn tắt đèn phòng khách
+    - tắt đèn phòng khách
+    - Tắt đèn phòng khách đê 
+
+# - intent: turn_off_lab_phongan
+#   examples: |
+#     - Tắt cho anh cái đèn phòng ăn cái 
+#     - Tắt đèn phòng ăn
+#     - Tôi muốn tắt đèn phòng ăn
+#     - tắt đèn phòng ăn
+#     - Tắt đèn phòng ăn đê 
+
+- intent: turn_on_lab_phongkhach
+  examples: |
+    - Phòng khách 
+    - Bật đèn phòng khách 
+    - Tôi muốn bật đèn phòng khách
+    - Bật đèn phòng khách cho anh
+    - Phòng khách của anh hơi tối       
+
+
+- intent: turn_on_lab_phongngu
+  examples: |
+    - Phòng ngủ 
+    - Bật đèn phòng ngủ 
+    - Tôi muốn bật đèn phòng ngủ
+    - Bật đèn phòng khách cho ngủ
+    - Phòng ngủ của anh hơi tối   
+
+# - intent: turn_on_lab_phongan
+#   examples: |
+#     - Phòng ăn
+#     - Bật đèn phòng ăn 
+#     - Tôi muốn bật đèn phòng ăn
+#     - Bật đèn phòng khách cho ăn
+#     - Phòng ăn của anh hơi tối  
+
+# # - intent: ask_chat 
+#   examples: |
+#     - Cho anh hỏi cái này với 
+#     - Cho anh hỏi 
+#     - Hỏi cái 
+#     - Anh có câu hỏi này 
+#     - Giúp anh trả lời câu hỏi này 
+  
+- intent:  turn_on_lab_nhavesinh
+  examples: | 
+    - Nhà vệ sinh 
+    - Bật đèn nhà vệ sinh 
+    - Tôi muốn bật đèn nhà vệ sinh
+    - Bật đèn nhà vệ sinh 
+
+- intent: turn_off_lab_nhavesinh
+  examples: |
+    - Tắt cho anh cái đèn nhà vệ sinh cái 
+    - Tắt đèn nhà vệ sinh
+    - Tôi muốn tắt đèn nhà vệ sinh
+    - tắt đèn nhà vệ sinh
+    - Tắt đèn nhà vệ sinh đê 
+
+
+- intent: lock_the_door 
+  examples: |
+    - Khóa cổng 
+    - Khóa hộ anh cái cổng
+    - Khóa cổng cho anh
+    - Khóa cổng đê
+    - Khóa cổng hộ anh cái. 
+
+- intent: ask_time 
+  examples: | 
+    - Cho anh hỏi mấy giờ rồi 
+    - Mấy giờ rồi nhỉ? 
+    - Cho anh hỏi mấy giờ rồi em? 
+    - Mấy giờ rồi? 
+    - Đang là mấy giờ rồi? 
+    - Mấy giờ rồi nhỉ? 
+
+- intent: out_of_scope
+  examples: |
+    - Cho anh hỏi thông tin Hồ Chí Minh?
+    - Ai là người giàu nhất Việt Nam?
+    - làm cho anh một bài thơ tình đi
+    - giới thiệu cho anh về chủ tịch hồ chí minh nào
+    - Hạ Long đi biển mùa nào được em ơi 
+    - ngày nhà giáo Việt Nam là ngày gì em nhỉ 
+    - biểu hiện của bị ốm
+    - em biết lý bạch không
+    - nguyên lý hoạt động của mạng học sâu
+    - ngày quốc tế thiếu nhi là ngày nào ?
+    - hai mũ 10 là bao nhiêu
+
+
+- intent: play_music
+  examples: |
+    - tự nhiên anh muốn nghe nhạc
+    - phát cho anh tí nhạc
+    - lên nhạc em ơi
+    - Bật cho anh bài nhạc 
+    - Bật nhạc cho anh 
+
+
+- intent: search_youtube
+  examples: |
+    - phát cho anh bài nhạc [hãy trao cho anh](music_name)
+    - tự nhiên anh muốn nghe [cưới thôi chờ chi](music_name)
+    - mở cho anh [hãy trao cho anh](music_name)
+    - Bật cho anh bài [Hãy trao cho anh](music_name)
+    - Bật cho anh bài [lạc trôi](music_name)
+    - Bật cho anh bài [Making my way](music_name)
+    - Bật cho anh bài [Chia tay](music_name)
+    - Bật cho anh bài [baby shark](music_name)
+    - Bật cho anh bài [đừng về trễ](music_name)
+    - Bật cho anh bài [Đôi lời](music_name)
+    - Bật cho anh bài [đi về nhà](music_name)
+    - phát cho anh bài [quốc ca](music_name)
+    - phát cho anh bài [](music_name)
+
+    
+
+- intent: stop_music
+  examples: |
+    - Tắt nhạc 
+    - Tắt nhạc đi em 
+    - Tắt nhạc cho anh 
+    - thôi không nghe nữa đâu
+    - Tắt phát nhạc đi em
+    - nhạc chán quá , nghỉ đi em
+    - anh đau đầu quá , tắt nhạc đi em
+
+- intent: ask_weathertoday
+  examples: |
+    - Thời tiết hôm nay thế nào em ơi? 
+    - Tình hình thời tiết hôm nay
+    - Cho anh hỏi tình hình thời tiết hôm nay
+    - Thời tiết hôm nay thế nào? 
+    - Thời tiết hôm nay
+
+### intent dark :)))
+- intent: hoisk 
+  examples: |
+    - Em khỏe không? 
+
+
+# - intent: greet
+#   examples: |
+#     - xin chào
+#     - chào em 
+#     - hi
+#     - hey tuấn anh 
+#     - hey 
+
+
+# - intent: goodbye
+#   examples: |
+#     - cu
+#     - good by
+#     - cee you later
+#     - good night
+#     - bye
+#     - goodbye
+#     - have a nice day
+#     - see you around
+#     - bye bye
+#     - see you later
+
+# - intent: affirm
+#   examples: |
+#     - yes
+#     - y
+#     - indeed
+#     - of course
+#     - that sounds good
+#     - correct
+
+# - intent: deny
+#   examples: |
+#     - no
+#     - n
+#     - never
+#     - I don't think so
+#     - don't like that
+#     - no way
+#     - not really
+
+# - intent: mood_great
+#   examples: |
+#     - perfect
+#     - great
+#     - amazing
+#     - feeling like a king
+#     - wonderful
+#     - I am feeling very good
+#     - I am great
+#     - I am amazing
+#     - I am going to save the world
+#     - super stoked
+#     - extremely good
+#     - so so perfect
+#     - so good
+#     - so perfect
+
+# - intent: mood_unhappy
+#   examples: |
+#     - my day was horrible
+#     - I am sad
+#     - I don't feel very well
+#     - I am disappointed
+#     - super sad
+#     - I'm so sad
+#     - sad
+#     - very sad
+#     - unhappy
+#     - not good
+#     - not very good
+#     - extremly sad
+#     - so saad
+#     - so sad
+
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot?
+#     - are you a human?
+#     - am I talking to a bot?
+#     - am I talking to a human?

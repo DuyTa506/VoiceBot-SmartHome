@@ -1,0 +1,146 @@
+version: "3.1"
+
+stories:
+
+# intent : ===============
+# greet 
+# bye 
+# turn_on_lab 
+# turn_off_lab_phongngu
+# turn_off_lab_phongkhach
+# turn_off_lab_phongan
+# turn_on_lab_phongkhach
+# turn_on_lab_phongngu
+# turn_on_lab_phongan
+# do_nhietdophong
+# do_doam
+
+# response :===============
+# batdau 
+# hoi_den 
+# tat_den_phong_khach
+# bat_den_phong_khach 
+# tat_den_phong_an 
+# bat_den_phong_an
+# tat_den_phong_ngu
+# bat_den_phong_ngu
+# do_nhiet_do
+# do_do_am
+
+# - story: story1  
+#   steps: 
+#   - intent: turn_on_lab 
+#   - action: utter_hoi_den
+#   - intent: turn_on_lab_phongkhach
+#   - action: utter_bat_den_phong_khach
+#   - intent: turn_off_lab_phongkhach
+#   - action: utter_tat_den_phong_khach
+
+# - story: story2
+#   steps: 
+#   - intent: turn_on_lab 
+#   - action: utter_hoi_den
+#   - intent: turn_on_lab_phongngu
+#   - action: utter_bat_den_phong_ngu
+#   - intent: turn_off_lab_phongngu
+#   - action: utter_tat_den_phong_ngu
+
+# - story: story3
+#   steps: 
+#   - intent: turn_on_lab 
+#   - action: utter_hoi_den
+#   - intent: turn_on_lab_phongan
+#   - action: utter_bat_den_phong_an
+#   - intent: turn_off_lab_phongan
+#   - action: utter_tat_den_phong_an
+
+# - story: story4
+#   steps: 
+#   - intent: turn_on_lab
+#   - action: utter_hoi_den
+#   - intent: turn_on_lab_nhavesinh
+#   - action: utter_bat_den_nhavesinh
+#   - intent: turn_off_lab_nhavesinh
+#   - action: utter_tat_den_nhavesinh
+
+- story: story5
+  steps: 
+  - intent: lock_the_door
+  - action: utter_khoa_cua
+
+
+- story: hoidap
+  steps:
+    - intent: out_of_scope
+    - action: action_askGPT
+- story: YOutube
+  steps:
+    - intent: play_music
+    - action: utter_ask_youtube_form_music_name
+    - intent: search_youtube
+    - action: youtube_form
+    - intent: stop_music
+    - action: action_stop_music
+    
+
+# - story: Bật nhạc cụ thể bài
+  # # condition: 
+  # # - activate_loop: youtube_form 
+  # steps: 
+  # - intent: search_youtube 
+  # - action: youtube_form
+  # - active_loop: youtube_form # indicates the forms should be activated after youtube_form was run
+  # - slot_was_set :
+  #   - requested_slot : music_name
+  # - intent: stop_music
+  # - action: action_deactivate_loop
+  # - action: action_stop_music
+  # - active_loop: null
+# - story: huysearchYoutube
+#   steps:
+#   - intent: search_youtube
+#   - action: youtube_form
+#   - active_loop: youtube_form
+#   - intent: out_youtube
+#   - action: utter_cho_doi
+#   - intent: out_youtube
+#   - action: utter_cho_doi
+#   - active_loop: null
+
+# - story: youtube search
+#   - youtube_form
+#   -form{"music name": "music_name"}
+#   -form{"music name": null}
+# - story: story6
+#   steps: 
+#   - intent: ask_time
+#   - action: utter_tra_loi_gio
+
+
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye

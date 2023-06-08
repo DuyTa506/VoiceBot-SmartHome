@@ -1,0 +1,172 @@
+version: "3.1"
+
+rules:
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+- rule: khóa cổng
+  steps: 
+  - intent: lock_the_door
+  - action: utter_khoa_cua
+
+- rule: ask bot time 
+  steps:
+  - intent: ask_time
+  - action: action_ans_time
+
+- rule: hỏi bot chức năng  
+  steps:
+  - intent: hoichucnang
+  - action: utter_traloichucnang
+
+- rule: chào hỏi 
+  steps:
+  - intent: greet
+  - action: utter_batdau
+
+- rule: hỏi tên 
+  steps:
+  - intent: hoiten
+  - action: utter_traloiten
+
+- rule: turn up music 
+  steps:
+  - intent: batnhac
+  - action: action_batnhac
+
+- rule: nghỉ   
+  steps:
+  - intent: bye
+  - action: utter_bye
+
+# - rule: bật đèn nào    
+#   steps:
+#   - intent: turn_on_lab 
+#   - action: utter_hoi_den
+
+
+- rule: bật đèn phòng khách   
+  steps:
+  - intent: turn_on_lab_phongkhach
+  - action: utter_bat_den_phong_khach
+- rule: tắt đèn phòng khách   
+  steps:
+  - intent: turn_off_lab_phongkhach
+  - action: utter_tat_den_phong_khach
+
+
+
+- rule: bật đèn phòng ngủ   
+  steps:
+  - intent: turn_on_lab_phongngu
+  - action: utter_bat_den_phong_ngu
+- rule: tắt đèn phòng ngủ   
+  steps:
+  - intent: turn_off_lab_phongngu
+  - action: utter_tat_den_phong_ngu
+
+
+- rule: bật đèn vệ sinh    
+  steps:
+  - intent: turn_on_lab_nhavesinh
+  - action: utter_bat_den_nhavesinh
+- rule: tắt đèn nhà vệ sinh   
+  steps:
+  - intent: turn_off_lab_nhavesinh
+  - action: utter_tat_den_nhavesinh
+
+- rule: hỏi đáp
+  steps:
+  - intent: out_of_scope 
+  - action: action_askGPT
+
+
+
+- rule: Bật nhạc 
+  steps:
+  - intent: play_music
+  - action: utter_ask_youtube_form_music_name
+  # - action: utter_play_music
+
+- rule: Bật nhạc cụ thể 
+  steps:
+  - intent: search_youtube
+  - action: youtube_form
+  - active_loop: youtube_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+
+
+# - rule: Bật bài hát cụ thể
+#   condition:
+#   - activate_loop: youtube_form 
+#   steps:
+#   - intent: search_youtube
+#   - action: youtube_form
+#   - active_loop: youtube_form
+
+
+# - rule: Bật nhạc cụ thể bài
+#   condition: 
+#   - activate_loop: youtube_form 
+#   steps: 
+#   - action: youtube_form
+#   - active_loop: null # indicates the forms should be activated after youtube_form was run 
+#   - slot_was_set:
+#     - requested_slot: null
+    
+
+- rule: Tắt nhạc 
+  steps: 
+  - intent: stop_music
+  - action: action_stop_music
+
+
+- rule: hỏi thời tiết hôm nay
+  steps: 
+  - intent: ask_weathertoday
+  - action: action_ans_weathertoday
+
+- rule: hỏi sk
+  steps: 
+  - intent: hoisk
+  - action: utter_sk
+
+# tham khảo 
+# - rule: bật bài music cụ thể 
+#   condition: 
+#   - activate_loop: youtube_form
+#   steps: 
+#   - intent: play_music
+#   - action: utter_ask_youtube_form_music_name
+#   - action: youtube_form
+#   - action_loop: youtube_form
+#   - intent: stop_music
+#   - action: action_deactivate_loop
+#   - active_loop: null 
+
+#########################################
+
+
+# - rule: Submit youtube Form
+#   condition:
+#   - action: youtube_form
+#   steps:
+#   - intent: inform
+#   - action: utter_play_music
+  
+
+# - rule: Interruption in Youtube Form
+#   condition:
+#   # Condition that form is active.
+#   - action: youtube_form
+#   steps:
+#   # This unhappy path handles the case of an intent `bot_challenge`.
+#   - intent: stop_music
+#   - action: utter_stop_music
+
+  # The actions we want to run when the form is submitted.
